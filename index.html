@@ -1,0 +1,125 @@
+<!-- Nayuda Gigih Fayruz Qolbiy -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blockchain Certificate Verification</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<header class="topbar">
+  <nav class="nav">
+    <div class="brand">
+      <!-- Logo Blockchain (SVG) -->
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.8 19.2 7v10L12 21.2 4.8 17V7L12 2.8Z" stroke="currentColor" stroke-width="1.6" />
+          <path d="M12 2.8V12l7.2-4.1" stroke="currentColor" stroke-width="1.6" />
+          <path d="M12 12v9.2" stroke="currentColor" stroke-width="1.6" />
+          <path d="M12 12 4.8 7.9" stroke="currentColor" stroke-width="1.6" />
+          <path d="M7.6 9.2 12 6.7l4.4 2.5" stroke="currentColor" stroke-width="1.6" opacity=".85"/>
+          <path d="M7.6 14.8 12 17.3l4.4-2.5" stroke="currentColor" stroke-width="1.6" opacity=".85"/>
+        </svg>
+      </span>
+
+      <div class="brandText">
+        <div class="brandTitle">Certificate Verification</div>
+        <div class="brandSub">Blockchain document authentication</div>
+      </div>
+    </div>
+
+    <!-- kanan: status ringkas (optional tapi keren) -->
+    <div class="navStatus">
+      <span class="pill">Account: <b id="account">-</b></span>
+      <span class="pill">Network: <b id="network">-</b></span>
+      <button id="connectWallet" class="navBtn">Connect MetaMask</button>
+</button>
+
+    </div>
+  </nav>
+</header>
+
+
+  <main class="container">
+
+    <!-- <section class="card">
+      <h2>🔐 Wallet Connection</h2> -->
+      <!-- <button id="connectWallet">Connect MetaMask</button> -->
+
+
+      <!-- <p><strong>Account:</strong> <span id="account">-</span></p> -->
+      <!-- <p><strong>Network:</strong> <span id="network">-</span></p> -->
+
+      
+    </section>
+
+    <section class="card">
+  <h2>📄 Upload Document</h2>
+
+<input
+  type="file"
+  id="fileInput"
+  accept=".pdf,.jpg,.jpeg,.png"
+/>
+
+
+  <button id="generateHash">Generate Hash</button>
+  <p><strong>Document Hash (SHA-256):</strong></p>
+  <code id="hashResult">-</code>
+</section>
+
+
+    <!-- <section class="card">
+      <h2>📄 Upload Document</h2>
+      <input type="file" id="fileInput"/>
+      <button id="generateHash">Generate Hash</button>
+      <p><strong>Document Hash (SHA-256):</strong></p>
+      <code id="hashResult">-</code>
+    </section> -->
+
+    <section class="card">
+      <h2>📝 Issue Certificate</h2>
+      <input type="text" id="docType" placeholder="Document Type (e.g. Certificate)"/>
+      <input type="text" id="holderId" placeholder="Holder ID (optional)"/>
+      <button id="issueCert">Store Hash to Blockchain</button>
+      <p><strong>Transaction Hash:</strong></p>
+      <code id="txHash">-</code>
+    </section>
+
+    <section class="card">
+      <h2>🔍 Verify Certificate</h2>
+      
+          <div class="inputWithBtn">
+<input type="text" id="verifyHash" placeholder="Paste document hash" />
+
+<button type="button" id="useGeneratedHash" class="inlineBtn">
+  Pakai Hash
+</button>
+
+</div>
+
+
+      <!-- <input type="text" id="verifyHash" placeholder="Paste document hash"/> -->
+      <button id="verifyCert">Verify Certificate</button>
+      <div id="verifyResult"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Blockchain Certificate Verification — Nayuda Gigih Fayruz Qolbiy • Abiestia Dika Mulya Saputra • Riyan Dwi Saputra • Febrian Fadilla</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+  <script src="app.js"></script>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast">
+  <span id="toastMsg">Koneksikan ke wallet terlebih dahulu</span>
+</div>
+
+
+</body>
+</html>
