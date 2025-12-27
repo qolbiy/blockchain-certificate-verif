@@ -198,7 +198,6 @@ function showToast(message){
   }, 5000);
 }
 
-// ===== Use Generated Hash for Verify =====
 
 // ===== Use Generated Hash for Verify (robust) =====
 window.addEventListener("DOMContentLoaded", () => {
@@ -221,3 +220,26 @@ window.addEventListener("DOMContentLoaded", () => {
     showToast("Hash dimasukkan ke kolom verifikasi");
   });
 });
+
+// ===== Mobile header hide on scroll =====
+const topbar = document.querySelector(".topbar");
+let lastScrollY = window.scrollY;
+
+if (topbar) {
+  window.addEventListener("scroll", () => {
+    if (window.innerWidth > 640) return;
+
+    const currentScroll = window.scrollY;
+
+    // scroll ke bawah -> hide
+    if (currentScroll > lastScrollY && currentScroll > 40) {
+      topbar.classList.add("hide");
+    } 
+    // scroll ke atas -> show
+    else {
+      topbar.classList.remove("hide");
+    }
+
+    lastScrollY = currentScroll;
+  });
+}
