@@ -467,3 +467,16 @@ footer{
 .inlineBtn:active{
   background: rgba(255,255,255,.14) !important;
 }
+
+@media (max-width: 640px){
+
+  .topbar{
+    transition: transform .28s ease;
+    will-change: transform;
+  }
+
+  .topbar.hide{
+    transform: translateY(-100%);
+  }
+
+}
